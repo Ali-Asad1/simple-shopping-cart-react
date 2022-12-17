@@ -1,0 +1,36 @@
+
+.toastContainer {
+    width: fit-content;
+    height: fit-content;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+.carTtoast {
+    width: 280px;
+    padding: 10px 15px;
+    background: #32CD30;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    transform: translateX(120px);
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.carTtoast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.carTtoastBody {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.carTtoastBody p  {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+}

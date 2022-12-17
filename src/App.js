@@ -6,7 +6,6 @@ import Toast from "./Components/Toast/Toast";
 import products from "./data/products";
 import Cart from "./Components/Cart/Cart";
 import productContext from "./Contexts/ProductContext";
-
 export default function App() {
   const [allProducts, setAllProducts] = useState(products);
   const [userCart, setUserCart] = useState([]);
