@@ -4,8 +4,8 @@ import "./Navbar.css";
 
 export default function Navbar() {
   return (
-    <nav class="navbar navbar-expand-sm py-3 d-flex">
-      <div class="container">
+    <nav className="navbar navbar-expand-sm py-3 d-flex">
+      <div className="container">
         <a href="#" className="navbar-brand">
           SabzLearn Shop
         </a>
