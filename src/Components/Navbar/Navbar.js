@@ -11,7 +11,6 @@ export default function Navbar() {
         <a href="#" className="navbar-brand">
           MY Shop
         </a>
-
         <ul className="navbar-nav me-auto ms-3">
           <li className="nav-item">
             <a href="#" className="nav-link">
@@ -25,7 +24,7 @@ export default function Navbar() {
             contextData.setIsShowCart(true)
           }}>
             <BsBag className="text-white" />
-            <span className="bag-products-counter">0</span>
+            <span className="bag-products-counter">{contextData.userCart.length}</span>
           </a>
         </div>
       </div>

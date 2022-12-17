@@ -4,6 +4,40 @@ import "./ProductsSection.css";
 
 export default function ProductsSection({ title, infos }) {
   const contextData = useContext(productContext)
+  const addToCart = (product) => {
+    contextData.setIsShowToast(true)
+    setTimeout(() => {
+      contextData.setIsShowToast(false)
+    }, 2000)
+
+    let { userCart, setUserCart } = contextData
+
+    let isInCart = userCart.some(cartProduct => {
+      return cartProduct.title == product.title
+    })
+
+    if (!isInCart) {
+
+      let newCartProduct = {
+        id: userCart.length + 1,
+        title: product.title,
+        price: product.price,
+        count: 1
+      }
+      setUserCart(prevUserCart => [...prevUserCart, newCartProduct])
+    } else {
+      let copyCartProducts = [...userCart]
+
+      copyCartProducts.forEach(cartProduct => {
+        if (cartProduct.title == product.title) {
+          cartProduct.count += 1
+          return true
+        }
+      })
+
+      setUserCart(copyCartProducts)
+    }
+  }
   return (
     <>
       {
@@ -26,12 +60,7 @@ export default function ProductsSection({ title, infos }) {
                     <p className="card-text">{product.title}</p>
                     <p className="price">{product.price}$</p>
                     <br />
-                    <a href="javascript:void(0)" className="btn btn-danger" onClick={() => {
-                      contextData.setIsShowToast(true)
-                      setTimeout(()=>{
-                        contextData.setIsShowToast(false)
-                      },2000)
-                    }}>
+                    <a href="javascript:void(0)" className="btn btn-danger" onClick={() => addToCart(product)}>
                       Add To Cart
                     </a>
                     <a href="#" className="btn btn-outline-dark mt-3 text-capitalize">
